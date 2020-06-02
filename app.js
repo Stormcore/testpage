@@ -2394,7 +2394,7 @@ if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
 if (window.CTDEBUG === true) {
     serverUrl = "http://localhost:57603";
 } else {
-    serverUrl = "https://gatewayserverlinux.azurewebsites.net";
+    serverUrl = "https://gatewayserverwindows.azurewebsites.net";
 }
 
 function sendData(url, data) {
