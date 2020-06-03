@@ -2451,8 +2451,11 @@ if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
 
         var sendTrackedData = function () {
             var url = serverUrl + "/api/browserevents/observe";
-            sendData(url, JSON.stringify(observedEvents));
-            observedEvents = [];
+
+            if (observedEvents.length > 0) {
+                sendData(url, JSON.stringify(observedEvents));
+                observedEvents = [];
+            }
         }
 
         setInterval(sendTrackedData, 300);
@@ -2494,4 +2497,3 @@ if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
         });
     })();
 }
-
