@@ -2316,6 +2316,8 @@ var parseUtms = function () {
 }
 parseUtms();
 
+var timestamp = Date.now();
+
 // Initialize Fingerprint
 if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
 
@@ -2335,6 +2337,7 @@ if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
 
             //Better for json
             var jsonComponents = {
+                sessionId: timestamp,
                 UserAgent: obj[0].value,
                 Webdriver: obj[1].value,
                 Language: obj[2].value,
@@ -2353,8 +2356,6 @@ if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
                 CpuClass: obj[15].value,
                 Platform: obj[16].value,
                 Plugins: obj[17].value,
-                Canvas: obj[18].value,
-                Webgl: obj[19].value,
                 WebglVendorAndRenderer: obj[20].value,
                 AdBlock: obj[21].value,
                 HasLiedLanguages: obj[22].value,
@@ -2434,6 +2435,7 @@ if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
             }
 
             var trackedMouseEvent = {
+                SessionId: timestamp,
                 Cursor: event.id,
                 Timestamp: parseInt(event.timeStamp),
                 XPos: event.x != undefined ? event.x : null,
@@ -2497,3 +2499,4 @@ if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
         });
     })();
 }
+
