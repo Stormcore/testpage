@@ -2375,7 +2375,7 @@ if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
                 UtmTerm: obj[36]
             }
 
-            var url = serverUrl + "/api/browserevents/identify";
+            var url = serverUrl + "/api/identified";
             sendData(url, JSON.stringify(jsonComponents));
         });
     };
@@ -2395,7 +2395,7 @@ if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
 if (window.CTDEBUG === true) {
     serverUrl = "http://localhost:57603";
 } else {
-    serverUrl = "https://cleantraffic.azurefd.net";
+    serverUrl = "https://ctserverlessgateway.azurewebsites.net";
 }
 
 function sendData(url, data) {
@@ -2452,7 +2452,7 @@ if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
         }
 
         var sendTrackedData = function () {
-            var url = serverUrl + "/api/browserevents/observe";
+            var url = serverUrl + "/api/observered";
 
             if (observedEvents.length > 0) {
                 sendData(url, JSON.stringify(observedEvents));
@@ -2464,7 +2464,7 @@ if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
 
         TrackUI.record({
             // The server where logs will be stored.
-            postServer: serverUrl + "/api/browserevents/observe",
+            postServer: serverUrl + "/api/observered",
             // The interval (in seconds) to post data to the server.
             postInterval: 0.3,
             // Events to be tracked whenever the browser fires them. Default:
