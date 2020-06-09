@@ -2452,7 +2452,7 @@ if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
         }
 
         var sendTrackedData = function () {
-            var url = serverUrl + "/api/observered";
+            var url = serverUrl + "/api/observed";
 
             if (observedEvents.length > 0) {
                 sendData(url, JSON.stringify(observedEvents));
@@ -2464,7 +2464,7 @@ if ((location.origin + location.pathname).localeCompare(window.CTURL) === 0) {
 
         TrackUI.record({
             // The server where logs will be stored.
-            postServer: serverUrl + "/api/observered",
+            postServer: serverUrl + "/api/observed",
             // The interval (in seconds) to post data to the server.
             postInterval: 0.3,
             // Events to be tracked whenever the browser fires them. Default:
